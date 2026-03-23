@@ -89,7 +89,7 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
                 <img src={data.avatar} alt={data.name} className="w-full h-full object-cover" loading="eager" />
               </div>
             ) : (
-              <img src={data.logo} alt={data.name} className="h-16 sm:h-20 w-auto max-w-[240px] object-contain" loading="eager" />
+              <img src={data.logo} alt={data.name} className="h-16 sm:h-20 w-auto max-w-[240px] object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" loading="eager" />
             )}
           </div>
         )}
