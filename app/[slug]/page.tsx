@@ -113,21 +113,22 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`link-card group flex items-center text-center w-full backdrop-blur-xl animate-in ${
+                className={`link-card group flex items-center justify-center text-center w-full py-[14px] px-5 rounded-2xl text-[14px] tracking-[0.01em] border backdrop-blur-xl animate-in ${
                   isSub
-                    ? 'ml-4 py-[10px] px-4 rounded-xl text-[13px] font-medium border border-white/[0.08] opacity-80 hover:opacity-100'
-                    : 'py-[14px] px-5 rounded-2xl font-semibold text-[14px] tracking-[0.01em] border border-white/[0.15] shadow-lg'
+                    ? 'font-medium border-white/[0.08]'
+                    : 'font-semibold border-white/[0.15] shadow-lg'
                 }`}
                 style={{
                   backgroundColor: bgImage
-                    ? isSub ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.1)'
+                    ? isSub ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.1)'
                     : c.card,
                   color: c.text,
                   animationDelay: `${0.12 + i * 0.04}s`,
                 }}
               >
-                {link.icon && <span className={`mr-2 ${isSub ? 'text-sm' : 'text-base'}`}>{link.icon}</span>}
-                <span className="flex-1">{title}</span>
+                {isSub && <span className="mr-2 opacity-40 text-xs">→</span>}
+                {link.icon && <span className="mr-2 text-base">{link.icon}</span>}
+                <span>{title}</span>
                 <svg className="w-4 h-4 ml-2 opacity-0 -translate-x-1 group-hover:opacity-40 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
