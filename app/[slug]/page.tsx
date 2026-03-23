@@ -113,8 +113,8 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`link-card group flex items-center justify-center text-center w-full py-[14px] px-5 rounded-2xl text-[14px] tracking-[0.01em] border border-white/[0.15] backdrop-blur-xl shadow-lg animate-in ${
-                  isSub ? 'font-medium' : 'font-semibold'
+                className={`link-card group flex items-center justify-center text-center w-full py-[14px] px-5 rounded-2xl tracking-[0.01em] border border-white/[0.15] backdrop-blur-xl shadow-lg animate-in ${
+                  isSub ? 'text-[14px] font-medium' : 'text-[15px] font-semibold'
                 }`}
                 style={{
                   backgroundColor: bgImage ? 'rgba(255,255,255,0.1)' : c.card,
