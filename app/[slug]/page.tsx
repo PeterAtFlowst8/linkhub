@@ -3,12 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const revalidate = 60; // ISR: revalidate every 60 seconds
-
-export async function generateStaticParams() {
-  const clients = await getAllClients();
-  return clients.map((c) => ({ slug: c.slug }));
-}
+export const dynamic = 'force-dynamic'; // Always fetch fresh from Sanity
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
