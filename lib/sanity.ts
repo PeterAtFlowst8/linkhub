@@ -32,6 +32,7 @@ export interface LinkHubClient {
     platform: string;
     url: string;
   }[];
+  backgroundImage?: string;
   footerText?: string;
 }
 
@@ -42,8 +43,9 @@ export async function getClient(slug: string): Promise<LinkHubClient | null> {
       "slug": slug.current,
       name,
       tagline,
-      "logo": logo.asset->url,
-      "avatar": avatar.asset->url,
+      "logo": coalesce(logo.asset->url, externalLogo),
+      "avatar": coalesce(avatar.asset->url, externalAvatar),
+      "backgroundImage": coalesce(backgroundImage.asset->url, externalBgImage),
       colors,
       links[active == true] | order(order asc),
       socials,
