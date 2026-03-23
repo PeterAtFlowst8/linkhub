@@ -96,7 +96,7 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
 
         {/* Name + Tagline */}
         <div className="text-center mt-5 mb-7 animate-in" style={{ animationDelay: '0.08s' }}>
-          <h1 className="text-[22px] font-bold tracking-tight leading-tight">{data.name}</h1>
+          <h1 className="text-[22px] font-bold tracking-tight leading-tight uppercase">{data.name}</h1>
           {data.tagline && (
             <p className="text-[13px] mt-2 opacity-50 leading-relaxed max-w-[280px] mx-auto">{data.tagline}</p>
           )}
