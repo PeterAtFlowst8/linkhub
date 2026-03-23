@@ -71,7 +71,7 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
       {bgImage && (
         <div className="absolute inset-0 z-0">
           <img src={bgImage} alt="" className="w-full h-full object-cover" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         </div>
       )}
 
@@ -110,9 +110,9 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-card group flex items-center justify-center w-full py-[14px] px-5 rounded-2xl font-semibold text-[14px] tracking-[0.01em] border border-white/[0.08] backdrop-blur-md animate-in"
+              className="link-card group flex items-center justify-center w-full py-[14px] px-5 rounded-2xl font-semibold text-[14px] tracking-[0.01em] border border-white/[0.15] backdrop-blur-xl shadow-lg animate-in"
               style={{
-                backgroundColor: c.card,
+                backgroundColor: bgImage ? 'rgba(255,255,255,0.1)' : c.card,
                 color: c.text,
                 animationDelay: `${0.12 + i * 0.04}s`,
               }}
