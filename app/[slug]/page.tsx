@@ -81,12 +81,16 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
         {/* Logo / Avatar */}
         {hasImage && (
           <div className="animate-in mb-1">
-            <div
-              className="w-[96px] h-[96px] rounded-full overflow-hidden ring-[3px] ring-offset-[3px] shadow-xl"
-              style={{ ['--tw-ring-color' as never]: c.accent, ['--tw-ring-offset-color' as never]: bgImage ? 'transparent' : c.bg }}
-            >
-              <img src={data.avatar || data.logo} alt={data.name} className="w-full h-full object-cover" loading="eager" />
-            </div>
+            {data.avatar ? (
+              <div
+                className="w-[96px] h-[96px] rounded-full overflow-hidden ring-[3px] ring-offset-[3px] shadow-xl"
+                style={{ ['--tw-ring-color' as never]: c.accent, ['--tw-ring-offset-color' as never]: bgImage ? 'transparent' : c.bg }}
+              >
+                <img src={data.avatar} alt={data.name} className="w-full h-full object-cover" loading="eager" />
+              </div>
+            ) : (
+              <img src={data.logo} alt={data.name} className="h-16 sm:h-20 w-auto max-w-[240px] object-contain" loading="eager" />
+            )}
           </div>
         )}
 
