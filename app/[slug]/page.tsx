@@ -96,9 +96,9 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
 
         {/* Name + Tagline */}
         <div className="text-center mt-5 mb-7 animate-in" style={{ animationDelay: '0.08s' }}>
-          <h1 className="text-[22px] font-bold tracking-tight leading-tight uppercase">{data.name}</h1>
+          <h1 className="text-[24px] font-bold tracking-normal leading-tight" style={{ textTransform: 'none', textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>{data.name}</h1>
           {data.tagline && (
-            <p className="text-[13px] mt-2 opacity-50 leading-relaxed max-w-[280px] mx-auto">{data.tagline}</p>
+            <p className="text-[14px] mt-2 opacity-75 leading-relaxed max-w-[280px] mx-auto" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>{data.tagline}</p>
           )}
         </div>
 
@@ -113,17 +113,22 @@ export default async function LinkHubPage({ params }: { params: Promise<{ slug: 
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`link-card group flex items-center justify-center text-center w-full py-[14px] px-5 rounded-2xl tracking-[0.01em] border border-white/[0.15] backdrop-blur-xl shadow-lg animate-in ${
-                  isSub ? 'text-[14px] font-medium' : 'text-[15px] font-semibold'
+                className={`link-card group flex items-center justify-center text-center w-full rounded-2xl border border-white/[0.2] backdrop-blur-xl shadow-lg animate-in ${
+                  isSub
+                    ? 'py-[11px] px-5 text-[14px] font-medium tracking-normal'
+                    : 'py-[15px] px-5 text-[16px] font-bold tracking-wide'
                 }`}
                 style={{
-                  backgroundColor: bgImage ? 'rgba(255,255,255,0.1)' : c.card,
-                  color: c.text,
+                  backgroundColor: bgImage
+                    ? isSub ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0.45)'
+                    : c.card,
+                  color: '#ffffff',
+                  textShadow: '0 1px 4px rgba(0,0,0,0.5)',
                   animationDelay: `${0.12 + i * 0.04}s`,
                 }}
               >
-                {isSub && <span className="mr-2 opacity-70 text-sm">↳</span>}
-                {link.icon && <span className="mr-2 text-base">{link.icon}</span>}
+                {isSub && <span className="mr-2 opacity-50 text-sm">↳</span>}
+                {link.icon && <span className="mr-2">{link.icon}</span>}
                 <span>{title}</span>
                 <svg className="w-4 h-4 ml-2 opacity-0 -translate-x-1 group-hover:opacity-40 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
