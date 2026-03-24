@@ -8,10 +8,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const data = await getClient(slug);
   if (!data) return {};
+  const faviconUrl = data.favicon || data.logo || data.avatar || null;
   return {
     title: data.name,
     description: data.tagline || `Links for ${data.name}`,
     robots: 'index, follow',
+    icons: faviconUrl ? {
+      icon: faviconUrl,
+      apple: faviconUrl,
+    } : undefined,
     openGraph: {
       title: data.name,
       description: data.tagline || `Links for ${data.name}`,

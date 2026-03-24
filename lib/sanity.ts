@@ -14,6 +14,7 @@ export interface LinkHubClient {
   tagline?: string;
   logo?: string;
   avatar?: string;
+  favicon?: string;
   colors: {
     background: string;
     text: string;
@@ -46,6 +47,7 @@ export async function getClient(slug: string): Promise<LinkHubClient | null> {
       "logo": coalesce(logo.asset->url, externalLogo),
       "avatar": coalesce(avatar.asset->url, externalAvatar),
       "backgroundImage": coalesce(backgroundImage.asset->url, externalBgImage),
+      "favicon": coalesce(favicon.asset->url, externalFavicon),
       colors,
       links[active == true] | order(order asc),
       socials,
